@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "migration": "node ace migration:run",
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
     "start": "node ace serve",
