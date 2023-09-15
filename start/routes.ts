@@ -33,6 +33,6 @@ Route.group(() => {
     Route.delete('/car/:id', 'CarsController.delete')
   }).middleware('auth')
 
-  // Route.post('/register', 'AuthController.uniqRegister')
+  Route.post('/register', 'AuthController.uniqRegister')
   Route.post('/auth', 'AuthController.auth')
 }).prefix('api')
