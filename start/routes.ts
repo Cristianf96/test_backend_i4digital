@@ -25,9 +25,14 @@ Route.get('/', async () => {
 })
 
 Route.group(() => {
-  Route.get('/car', 'CarsController.index')
-  Route.post('/car/create', 'CarsController.store')
-  Route.get('/car/:id', 'CarsController.find')
-  Route.put('/car/:id', 'CarsController.update')
-  Route.delete('/car/:id', 'CarsController.delete')
+  Route.group(() => {
+    Route.get('/car', 'CarsController.index')
+    Route.post('/car/create', 'CarsController.store')
+    Route.get('/car/:id', 'CarsController.find')
+    Route.put('/car/:id', 'CarsController.update')
+    Route.delete('/car/:id', 'CarsController.delete')
+  }).middleware('auth')
+
+  // Route.post('/register', 'AuthController.uniqRegister')
+  Route.post('/auth', 'AuthController.auth')
 }).prefix('api')
