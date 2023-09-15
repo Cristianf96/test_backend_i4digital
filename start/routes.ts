@@ -29,8 +29,8 @@ Route.group(() => {
     Route.get('/car', 'CarsController.index')
     Route.post('/car/create', 'CarsController.store')
     Route.get('/car/:id', 'CarsController.find')
-    Route.put('/car/:id', 'CarsController.update')
-    Route.delete('/car/:id', 'CarsController.delete')
+    Route.put('/car/update/:id', 'CarsController.update')
+    Route.delete('/car/delete/:id', 'CarsController.delete')
   }).middleware('auth')
 
   Route.post('/register', 'AuthController.uniqRegister')

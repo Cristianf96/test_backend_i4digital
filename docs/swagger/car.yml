@@ -1,0 +1,126 @@
+/api/car:
+  get:
+    tags:
+      - Cars
+    security: []
+    description: Car
+    parameters:
+      - name: credentials
+        in:  headers
+        required: true
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Success
+        
+/api/car/create:
+ post:
+    tags:
+      - Cars
+    parameters:
+      - name: credentials
+        in:  body
+        required: true
+        schema:
+          properties:
+            id_customer:
+              type: string
+              example: 'A999'
+              required: true
+            identification_customer:
+              type: string
+              example: '123456789'
+              required: true
+            car_model:
+              type: number
+              example: 1990
+              required: true
+            factors:
+              type: string
+              example: 'La reputación de la marca'
+              required: true
+            test_drive_qualification:
+              type: number
+              example: 5
+              required: true
+            satisfaction_rating:
+              type: number
+              example: 5
+              required: true
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Success
+
+/api/car/{id}:
+  get:
+    tags:
+      - Cars
+    parameters:
+      - name: id
+        in:  path
+        required: true
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Success
+        
+/api/car/update/{id} :
+  put:
+    tags:
+      - Cars
+    parameters:
+      - name: id
+        in:  path
+        required: true
+      - name: credentials
+        in: body
+        required: true
+        schema:
+          properties:
+            id_customer:
+              type: string
+              example: 'A999'
+              required: true
+            identification_customer:
+              type: string
+              example: '123456789'
+              required: true
+            car_model:
+              type: number
+              example: 1990
+              required: true
+            factors:
+              type: string
+              example: 'La reputación de la marca'
+              required: true
+            test_drive_qualification:
+              type: number
+              example: 5
+              required: true
+            satisfaction_rating:
+              type: number
+              example: 5
+              required: true
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Success
+
+/api/car/delete/{id}:
+  delete:
+    tags:
+      - Cars
+    parameters:
+      - name: id
+        in:  path
+        required: true
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Success
