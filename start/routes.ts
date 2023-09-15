@@ -23,3 +23,11 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async () => {
   return { hello: 'Cars API' }
 })
+
+Route.group(() => {
+  Route.get('/car', 'CarsController.index')
+  Route.post('/car/create', 'CarsController.store')
+  Route.get('/car/:id', 'CarsController.find')
+  Route.put('/car/:id', 'CarsController.update')
+  Route.delete('/car/:id', 'CarsController.delete')
+}).prefix('api')
