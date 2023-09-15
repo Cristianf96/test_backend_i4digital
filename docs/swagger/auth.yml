@@ -1,0 +1,55 @@
+/api/auth:
+  post:
+    tags:
+      - Auth
+    security: []
+    description: Auth
+    parameters:
+      - name: credentials
+        in:  body
+        required: true
+        schema:
+          properties:
+            email:
+              type: string
+              example: 'email@gmail.com'
+              required: true
+            password:
+              type: string
+              example: '*********'
+              required: true
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Success
+
+/api/register:
+  post:
+    tags:
+      - Auth
+    security: []
+    description: Register
+    parameters:
+      - name: credentials
+        in:  body
+        required: true
+        schema:
+          properties:
+            email:
+              type: string
+              example: 'email@gmail.com'  
+              required: true
+            password:
+              type: string
+              example: '*********'
+              required: true
+            password_confirmation:
+              type: string
+              example: '*********'
+              required: true
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Success

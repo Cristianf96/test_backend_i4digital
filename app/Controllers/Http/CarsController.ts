@@ -3,6 +3,39 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Car from 'App/Models/Car'
 
 export default class CarsController {
+  /**
+   * @swagger
+   * /api/car:
+   * get:
+   * post:
+   *     tags:
+   *       - Car
+   *     requestBody:
+   *       required: true
+   *       content:
+   *         application/json:
+   *           description: Car payload
+   *           schema:
+   *             type: object
+   *             properties:
+   *               phone:
+   *                 type: string
+   *                 example: 'James Bond'
+   *                 required: true
+   *               email:
+   *                 type: string
+   *                 example: 'Bond007@example.com'
+   *                 required: true
+   *     produces:
+   *       - application/json
+   *     responses:
+   *       200:
+   *         description: Success
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/Car'
+   */
   public async index() {
     return Car.all()
   }
